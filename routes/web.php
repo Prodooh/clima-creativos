@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::namespace('App\Http\Controllers\Weather')->group(function() {
+    Route::get('/clima','WeatherController@index')->name('weather');
+    Route::post('/getWeather','WeatherController@getWeather')->name('getWeather');
+});
